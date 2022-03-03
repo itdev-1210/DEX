@@ -1,0 +1,26 @@
+export default {
+  masterChef: {
+    137: '0x1948abC5400Aa1d72223882958Da3bec643fb4E5',
+    56: '0x73feaa1eE314F8c655E354234017bE2193C9E24E'
+  },
+  sousChef: {
+    137: '0x6e8C5b04E59B41B362eB979dBb656bB71746bf95',
+    56: '0x6ab8463a4185b80905e05a9ff80a2d6b714b9e95'
+  },
+  multiCall:{
+  	137:'0xB801a1bec23C721e573e8edDd5101EEe272C7d08',
+  	56: '0x6ab8463a4185b80905e05a9ff80a2d6b714b9e95'
+  },
+  tarpit:{
+    137:'0x9C74ef9A4C217908a903c1C31ca48bf31b8588d4', 
+    56: '0x6ab8463a4185b80905e05a9ff80a2d6b714b9e95'
+  },
+  tarpitTwo:{
+    137:  '0x9D0D667E18DB6Bdf4dC09A7f8CEFE7DA297c0085',
+    56: '0x6ab8463a4185b80905e05a9ff80a2d6b714b9e95'
+  },
+  raffle: {
+    137: '0x7f5A3E375Dc29487CdE1b5ef5B8217F361Edc37B',
+    56: '',
+  },
+}

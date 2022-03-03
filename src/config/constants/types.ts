@@ -1,0 +1,152 @@
+import BigNumber from 'bignumber.js'
+import { SerializedBigNumber, TranslatableText } from 'state/types'
+
+export type IfoStatus = 'idle' | 'coming_soon' | 'live' | 'finished'
+
+export interface Ifo {
+  id: string
+  isActive: boolean
+  address: string
+  name: string
+  subTitle?: string
+  description?: string
+  launchDate: string
+  launchTime: string
+  saleAmount: string
+  raiseAmount: string
+  cakeToBurn: string
+  projectSiteUrl: string
+  currency: string
+  currencyAddress: string
+  tokenDecimals: number
+  tokenSymbol: string
+  releaseBlockNumber: number
+  campaignId?: string
+}
+
+export enum PoolCategory {
+  'COMMUNITY' = 'Community',
+  'CORE' = 'Core',
+  'MATIC' = 'Matic', // Pools using native BNB behave differently than pools using a token
+  'BINANCE' ='Binance',
+}
+
+export interface Address {
+  137:string
+  97?: string
+  56?: string
+}
+
+export interface Token {
+  symbol: string
+  address?: Address
+  decimals?: number
+  projectLink?: string
+}
+
+export interface FarmConfig {
+  pid: number
+  lpSymbol: string
+  liquidityUrl?: string
+  lpTokenForValue?:string
+  lpAddresses: Address
+  token: Token
+  quoteToken: Token
+  amm?: string
+  multiplier?: string
+  isCommunity?: boolean
+  finished?:boolean
+  dual?: {
+    rewardPerBlock: number
+    earnLabel: string
+    endBlock: number
+  }
+}
+
+export interface TarpitConfig {
+  stakingLimit?: number
+  DINOAddress: Address
+  contractAddress: Address
+  versiontwo?:boolean
+}
+
+export interface PoolConfig {
+  sousId: number
+  earningToken: Token
+  stakingToken: Token
+  stakingLimit?: number
+  contractAddress: Address
+  poolCategory: PoolCategory
+  tokenPerBlock: string
+  sortOrder?: number
+  harvest?: boolean
+  isFinished?: boolean
+  lockBlock?: number
+}
+
+export type Images = {
+  lg: string
+  md: string
+  sm: string
+  ipfs?: string
+}
+
+export type NftImages = {
+  blur?: string
+} & Images
+
+export type NftVideo = {
+  webm: string
+  mp4: string
+}
+
+export type Nft = {
+  name: string
+  description: string
+  images: NftImages
+  sortOrder: number
+  bunnyId: number
+  video?: NftVideo
+}
+
+export type TeamImages = {
+  alt: string
+} & Images
+
+export type Team = {
+  id: number
+  name: string
+  description: string
+  isJoinable?: boolean
+  users: number
+  points: number
+  images: TeamImages
+  background: string
+  textColor: string
+}
+
+export type CampaignType = 'ifo'
+
+export type Campaign = {
+  id: string
+  type: CampaignType
+  title?: TranslatableText
+  description?: TranslatableText
+  badge?: string
+}
+
+export interface RaffleTicket {
+  id: string
+  number: string
+  status: boolean
+  rewardBracket?: number
+  roundId?: string
+  cakeReward?: SerializedBigNumber
+}
+
+export interface RaffleTicketClaimData {
+  ticketsWithUnclaimedRewards: RaffleTicket[]
+  allWinningTickets: RaffleTicket[]
+  cakeTotal: BigNumber
+  roundId: string
+}
